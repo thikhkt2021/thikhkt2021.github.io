@@ -48,8 +48,8 @@
 					id="sdt" placeholder="Nhập SDT">
 				</div>
 			</div>
-			<button type="submit" class="btn btn-primary"
-				style="margin-left: 15px; margin-top: 10px">
+			<button id="Button" class="btn btn-primary"
+				style="margin-left: 15px; margin-top: 10px" onclick="submitForm()">
 				Khai báo
 			</button>
 			<h2 id="status" style="color:red;" align="center"></h2>
@@ -90,11 +90,10 @@
 
 		var dtbase = firebase.database().ref('DuLieuKhach');
 		
-		document.getElementById('contactForm')
-			.addEventListener('submit', submitForm);
+		//document.getElementById('contactForm').addEventListener('submit', submitForm);
 
-		function submitForm(e) {
-			e.preventDefault();
+		function submitForm() {
+			//e.preventDefault();
 			// Get values
 			var name = getInputVal('name');
 			var diachi = getInputVal('diachi');
@@ -124,6 +123,7 @@
 					Tong: 1,
 				});
 				//document.getElementById('contactForm').reset();
+				document.getElementById("Button").disabled = true;
 			}
 		}
 
